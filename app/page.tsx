@@ -1,6 +1,9 @@
 // app/page.tsx
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
+import AboutMe from '@/components/AboutMe';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 //import About from '@/components/About';
 //import Projects from '@/components/Projects';
 //import Contact from '@/components/Contact';
@@ -11,7 +14,9 @@ export default function HomePage() {
     <main className="bg-[##1A1A1A] text-white scroll-smooth">
       <Navbar />
       <Hero />
-      <Hero />
+      <AboutMe />
+      <Projects />
+      <Contact />
       {/*<About />
       <Projects />
       <Contact />
