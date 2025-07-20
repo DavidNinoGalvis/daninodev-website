@@ -4,10 +4,6 @@ import Navbar from '@/components/Navbar';
 import AboutMe from '@/components/AboutMe';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-//import About from '@/components/About';
-//import Projects from '@/components/Projects';
-//import Contact from '@/components/Contact';
-//import Footer from '@/components/Footer';
 
 export default function HomePage() {
   return (
@@ -17,10 +13,6 @@ export default function HomePage() {
       <AboutMe />
       <Projects />
       <Contact />
-      {/*<About />
-      <Projects />
-      <Contact />
-      <Footer />*/}
     </main>
   );
 }
