@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Mail, Copy, Download } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import Image from "next/image";
+import Link from "next/link";
+import { Mail, Copy, Download } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -14,10 +14,20 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.hero-title', { y: 50, opacity: 0, duration: 1 });
-      gsap.from('.hero-subtitle', { y: 30, opacity: 0, delay: 0.3, duration: 1 });
-      gsap.from('.hero-text', { y: 30, opacity: 0, delay: 0.6, duration: 1 });
-      gsap.from('.hero-buttons', { opacity: 0, scale: 0.8, delay: 0.8, duration: 0.8 });
+      gsap.from(".hero-title", { y: 50, opacity: 0, duration: 1 });
+      gsap.from(".hero-subtitle", {
+        y: 30,
+        opacity: 0,
+        delay: 0.3,
+        duration: 1,
+      });
+      gsap.from(".hero-text", { y: 30, opacity: 0, delay: 0.6, duration: 1 });
+      gsap.from(".hero-buttons", {
+        opacity: 0,
+        scale: 0.8,
+        delay: 0.8,
+        duration: 0.8,
+      });
     }, heroRef);
 
     return () => ctx.revert();
@@ -28,13 +38,13 @@ export default function Hero() {
       gsap.fromTo(
         emailBoxRef.current,
         { y: -10, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+        { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }
       );
     }
   }, [showEmail]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('danino.dev@gmail.com');
+    navigator.clipboard.writeText("danino.dev@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -44,7 +54,7 @@ export default function Hero() {
       ref={heroRef}
       className="min-h-screen pt-28 flex items-center justify-center px-6 md:px-12 bg-[#121212] text-white"
     >
-      <div className="w-full max-w-[1300px] flex flex-col-reverse md:flex-row items-center justify-between gap-3">
+      <div className="w-full max-w-[1250px] flex flex-col-reverse md:flex-row items-center justify-between gap-8">
         {/* Text Section */}
         <div className="flex flex-col gap-6 max-w-xl">
           <span className="text-gray-400">— Hey!</span>
@@ -62,7 +72,8 @@ export default function Hero() {
           </h2>
 
           <p className="hero-text text-gray-300">
-            I build interactive web experiences with clean code, sharp design, and a touch of jazz 🎷
+            I build interactive web experiences with clean code, sharp design,
+            and a touch of jazz 🎷
           </p>
 
           <div className="hero-buttons flex gap-4 mt-4">
@@ -94,19 +105,21 @@ export default function Hero() {
               >
                 <Copy size={18} />
               </button>
-              {copied && <span className="text-green-500 text-xs ml-2">Copied!</span>}
+              {copied && (
+                <span className="text-green-500 text-xs ml-2">Copied!</span>
+              )}
             </div>
           )}
         </div>
 
         {/* Image Section */}
-        <div className="hidden md:block">
+        <div className="md:w-1/2 flex justify-center md:justify-end">
           <Image
-            src="/perfil_danino.png"
+            src="/davidphoto.jpg"
             alt="Foto de David Niño"
             width={300}
             height={300}
-            className="rounded-xl border-2 border-white rotate-3 shadow-2xl hover:scale-110 transition-all duration-300"
+            className="rounded-full object-cover border-2 border-white shadow-2xl hover:scale-110 transition-all duration-300"
           />
         </div>
       </div>

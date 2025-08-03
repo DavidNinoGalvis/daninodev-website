@@ -60,11 +60,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative overflow-x-hidden bg-[#121212] text-white">
-        {/* Iluminaciones */}
-        <div className="absolute top-10 left-10 w-72 h-72 bg-[#581BB7] opacity-10 blur-3xl rounded-full z-0" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#581BB7] opacity-5 blur-[120px] rounded-full z-0" />
-
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 max-w-[1285px] mx-auto px-6">
+          {children}
+        </div>
       </body>
     </html>
   );
