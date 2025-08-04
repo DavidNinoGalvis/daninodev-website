@@ -1,10 +1,12 @@
 module.exports = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#581BB7',
-        },
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: '#581BB7',
+        light: '#eeeeee',
       },
     },
-  };
-  
+  },
+  plugins: [],
+};
