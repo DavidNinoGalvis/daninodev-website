@@ -1,42 +1,20 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { gsap } from 'gsap';
 
-export default function ThemeToggle() {
-  const [darkMode, setDarkMode] = useState(true); // default: dark
-  const iconRef = useRef<HTMLDivElement>(null);
+interface ThemeToggleProps {
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+}
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-
-    // Cambia la clase de `html`
-    if (typeof document !== 'undefined') {
-      const html = document.documentElement;
-      html.classList.toggle('dark', !darkMode);
-    }
-  };
-
-  // Animación de entrada
-  useEffect(() => {
-    if (iconRef.current) {
-      gsap.fromTo(
-        iconRef.current,
-        { rotate: 0, scale: 0.9 },
-        { rotate: 360, scale: 1, duration: 0.5, ease: 'power2.out' },
-      );
-    }
-  }, [darkMode]);
-
+export default function ThemeToggle({ theme, toggleTheme }: ThemeToggleProps) {
   return (
-    <div
+    <button
       onClick={toggleTheme}
-      ref={iconRef}
-      className="cursor-pointer hover:text-[#581BB7] hover:scale-110 transition-transform duration-300 ease-in-out"
-      title="Toggle theme"
+      className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110 p-2 rounded-lg hover:bg-foreground/10"
+      aria-label={`Cambiar a tema ${theme === 'dark' ? 'claro' : 'oscuro'}`}
     >
-      {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-    </div>
+      {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+    </button>
   );
 }

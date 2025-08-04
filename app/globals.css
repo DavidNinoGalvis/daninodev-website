@@ -1,1 +1,79 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+:root {
+  --background: #eeeeee;
+  --foreground: #1a1a1a;
+  --primary: #581bb7;
+  --border: #d1d5db;
+  --muted: #6b7280;
+  --purple: #581bb7;
+  --purple-hover: #471095;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --primary: #581bb7;
+  --border: #2a2a2a;
+  --muted: #9ca3af;
+  --purple: #581bb7;
+  --purple-hover: #471095;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Clases directas para el tema */
+.bg-background {
+  background-color: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.border-border {
+  border-color: var(--border);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+/* Clases para elementos que mantienen el color morado */
+.bg-purple {
+  background-color: var(--purple);
+}
+
+.bg-purple-hover {
+  background-color: var(--purple-hover);
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+.border-purple {
+  border-color: var(--purple);
+}
+
+.bg-purple-light {
+  background-color: color-mix(in srgb, var(--purple) 20%, transparent);
+}
+
+.hover\:bg-purple-hover:hover {
+  background-color: var(--purple-hover);
+}
+
+.hover\:text-purple:hover {
+  color: var(--purple);
+}

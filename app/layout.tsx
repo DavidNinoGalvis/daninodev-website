@@ -1,6 +1,7 @@
 import { Roboto } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
+import ThemeProvider from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'David Nino - Full Stack Developer & Designer',
@@ -54,11 +55,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={roboto.variable}>
-      <body className="relative overflow-x-hidden bg-[#121212] text-white font-sans">
-        <div className="relative z-10 max-w-[1285px] mx-auto px-6">
-          {children}
-        </div>
+    <html lang="es" className={roboto.variable} suppressHydrationWarning>
+      <body className="relative overflow-x-hidden bg-background text-foreground font-sans transition-colors duration-300">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

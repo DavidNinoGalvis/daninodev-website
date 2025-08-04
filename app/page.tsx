@@ -7,7 +7,7 @@ import Contact from '@/components/Contact';
 
 export default function HomePage() {
   return (
-    <main className="bg-[##1A1A1A] text-white scroll-smooth">
+    <main className="bg-background text-foreground scroll-smooth">
       <Navbar />
       <Hero />
       <AboutMe />
@@ -16,4 +16,3 @@ export default function HomePage() {
     </main>
   );
 }
-
