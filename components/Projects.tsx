@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github as GithubIcon } from 'lucide-react';
 import Image from 'next/image';
 import Container from './Container';
 
@@ -95,7 +95,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github
+                    <GithubIcon
                       size={20}
                       className="hover:text-purple transition"
                     />
