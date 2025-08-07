@@ -1,54 +1,245 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Container from './Container';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Code, Palette, Rocket, Heart } from "lucide-react";
+import Container from "./Container";
 
 export default function AboutMe() {
+  const skills = [
+    {
+      icon: Code,
+      title: "Frontend Development",
+      description: "React, Next.js, TypeScript, Tailwind",
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Design",
+      description: "Modern interfaces, user experience",
+    },
+    {
+      icon: Rocket,
+      title: "Backend Learning",
+      description: "Node.js, APIs, Databases",
+    },
+    {
+      icon: Heart,
+      title: "Passion for Code",
+      description: "Self-taught, always improving",
+    },
+  ];
+
   return (
     <section
       id="about"
-      className="w-full min-h-screen py-20 bg-background text-foreground"
+      className="w-full min-h-screen py-20 bg-background text-foreground relative overflow-hidden"
     >
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-purple-600/10 dark:from-purple-400/10 dark:via-transparent dark:to-purple-500/20 pointer-events-none" />
+
+      {/* Floating particles */}
+      <motion.div
+        animate={{
+          y: [0, -10, 0],
+          x: [0, 5, 0],
+          rotate: [0, 180, 360],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-20 left-10 w-3 h-3 bg-purple-500/30 rounded-full"
+      />
+      <motion.div
+        animate={{
+          y: [0, 15, 0],
+          x: [0, -8, 0],
+          rotate: [0, -90, -180],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute bottom-32 right-16 w-4 h-4 bg-purple-600/40 rounded-full"
+      />
+
       <Container>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Text Section */}
-          <div className="max-w-2xl space-y-6">
-            <p className="text-sm text-muted">About me</p>
-            <h2 className="text-4xl font-bold">Who am I?</h2>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="max-w-2xl space-y-6 lg:space-y-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-sm text-muted-foreground font-medium tracking-wider uppercase">
+                About me
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold mt-2 bg-gradient-to-r from-foreground to-purple-600 dark:to-purple-400 bg-clip-text text-transparent">
+                Who am I?
+              </h2>
+            </motion.div>
 
-            <p className="text-muted">
-              I'm a{' '}
-              <span className="text-purple font-semibold">
-                Full-Stack Web Developer
-              </span>{' '}
-              with a strong focus on{' '}
-              <span className="font-semibold">Frontend development</span>, and
-              currently learning{' '}
-              <span className="font-semibold">Backend technologies</span>. I
-              love creating beautiful, functional and easy to use interfaces.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                I'm a{" "}
+                <span className="text-purple-600 dark:text-purple-400 font-semibold bg-purple-100/50 dark:bg-purple-900/30 px-2 py-1 rounded-md">
+                  Full-Stack Web Developer
+                </span>{" "}
+                with a strong focus on{" "}
+                <span className="font-semibold text-foreground">
+                  Frontend development
+                </span>
+                , and currently learning{" "}
+                <span className="font-semibold text-foreground">
+                  Backend technologies
+                </span>
+                . I love creating beautiful, functional and easy to use
+                interfaces.
+              </p>
 
-            <p className="text-muted">
-              I have +1 year of experience building and designing my own web
-              projects. I haven't worked formally in a company yet, but{' '}
-              <span className="font-semibold text-foreground">
-                I've learned Frontend and Backend skills through self study
-              </span>
-              . This has allowed me to build amazing and fully functional
-              websites on my own.
-            </p>
-          </div>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                I have +1 year of experience building and designing my own web
+                projects. I haven't worked formally in a company yet, but{" "}
+                <span className="font-semibold text-foreground bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900/40 dark:to-purple-800/40 px-2 py-1 rounded-md">
+                  I've learned Frontend and Backend skills through self study
+                </span>
+                . This has allowed me to build amazing and fully functional
+                websites on my own.
+              </p>
+            </motion.div>
+
+            {/* Skills Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"
+            >
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="flex items-start gap-3 p-4 rounded-lg bg-card/50 border border-border/50 hover:border-purple-500/30 dark:hover:border-purple-400/30 transition-all duration-200 backdrop-blur-sm"
+                >
+                  <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 shrink-0">
+                    <skill.icon size={18} />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground text-sm">
+                      {skill.title}
+                    </h4>
+                    <p className="text-muted-foreground text-xs mt-1">
+                      {skill.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
           {/* Image Section */}
-          <div className="shrink-0">
-            <Image
-              src="/perfil_danino.png"
-              alt="Foto de David Niño"
-              width={300}
-              height={300}
-              className="rounded-xl border-2 border-foreground rotate-3 shadow-2xl"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true }}
+            className="shrink-0 relative"
+          >
+            {/* Decorative background */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-2xl blur-lg" />
+
+            {/* Image container with hover effects */}
+            <motion.div
+              whileHover={{
+                rotate: 0,
+                scale: 1.05,
+                transition: { duration: 0.3 },
+              }}
+              className="relative"
+            >
+              <Image
+                src="/images/davidphoto.jpg"
+                alt="Foto de David Niño"
+                width={320}
+                height={320}
+                className="rounded-xl border-2 border-purple-200 dark:border-purple-800 rotate-3 shadow-2xl hover:shadow-purple-500/25 dark:hover:shadow-purple-500/40 transition-all duration-300 object-cover pointer-events-none select-none"
+                draggable={false}
+              />
+
+              {/* Floating badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                viewport={{ once: true }}
+                animate={{
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  y: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                className="absolute -bottom-4 -right-4 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl dark:shadow-purple-500/25 transition-all duration-200 cursor-default"
+              >
+                🎵 Jazz Lover
+              </motion.div>
+            </motion.div>
+
+            {/* Decorative dots */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -top-8 -left-8 w-16 h-16 bg-purple-500/10 dark:bg-purple-400/20 rounded-full"
             />
-          </div>
+            <motion.div
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+              className="absolute -bottom-6 -left-12 w-12 h-12 bg-purple-600/15 dark:bg-purple-300/25 rounded-full"
+            />
+          </motion.div>
         </div>
       </Container>
     </section>

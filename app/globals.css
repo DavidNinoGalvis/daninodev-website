@@ -1,23 +1,23 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --background: #eeeeee;
   --foreground: #1a1a1a;
-  --primary: #581bb7;
+  --primary: #8b46f3;
   --border: #d1d5db;
   --muted: #6b7280;
-  --purple: #581bb7;
-  --purple-hover: #471095;
+  --purple: #8b46f3;
+  --purple-hover: #3d1480;
 }
 
 .dark {
   --background: #121212;
   --foreground: #ffffff;
-  --primary: #581bb7;
+  --primary: #8b46f3;
   --border: #2a2a2a;
   --muted: #9ca3af;
-  --purple: #581bb7;
-  --purple-hover: #471095;
+  --purple: #8b46f3;
+  --purple-hover: #3d1480;
 }
 
 body {
@@ -28,7 +28,6 @@ body {
     color 0.3s ease;
 }
 
-/* Clases directas para el tema */
 .bg-background {
   background-color: var(--background);
 }
@@ -49,7 +48,6 @@ body {
   color: var(--muted);
 }
 
-/* Clases para elementos que mantienen el color morado */
 .bg-purple {
   background-color: var(--purple);
 }

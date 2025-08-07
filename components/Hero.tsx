@@ -11,7 +11,6 @@ import {
   Linkedin,
   Github,
   Facebook,
-  Sparkles,
 } from "lucide-react";
 import Container from "./Container";
 import { motion } from "framer-motion";
@@ -44,7 +43,7 @@ export default function Hero() {
       ref={heroRef}
       className="min-h-screen pt-12 md:pt-16 flex items-center justify-center bg-background text-foreground overflow-hidden relative"
     >
-      {/* Gradient background overlay - adaptable a ambos temas */}
+      {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-purple-600/10 dark:from-purple-400/10 dark:via-transparent dark:to-purple-500/20 pointer-events-none" />
 
       <Container>
@@ -60,22 +59,22 @@ export default function Hero() {
               — Hey!
             </span>
 
-            <span className="px-3 py-1.5 text-xs bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white w-fit rounded-full shadow-lg dark:shadow-purple-500/25 transition-all duration-200 mx-auto lg:mx-0">
+            <span className="px-3 py-1.5 text-xs bg-purple hover:bg-purple-hover text-white w-fit rounded-full shadow-lg transition-all duration-200 mx-auto lg:mx-0">
               Open to work
             </span>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               I'm{" "}
-              <span className="text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors duration-200">
-                David Niño
+              <span className="text-purple hover:text-purple transition-colors duration-200">
+                David Nino
               </span>
             </h1>
 
-            <h2 className="text-purple-600 dark:text-purple-400 text-xl md:text-2xl font-semibold">
-              Frontend Developer & UI Designer
+            <h2 className="text-purple text-xl md:text-2xl font-semibold">
+              Full Stack Developer & UI Designer
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-md mx-auto lg:mx-0">
+            <p className="text-muted leading-relaxed text-base md:text-lg max-w-md mx-auto lg:mx-0">
               I build interactive web experiences with clean code, sharp design,
               and a touch of jazz 🎷
             </p>
@@ -83,7 +82,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-4 w-full sm:w-auto">
               <motion.button
                 onClick={() => setShowEmail(!showEmail)}
-                className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl dark:shadow-purple-500/25 dark:hover:shadow-purple-500/40 transform hover:scale-105 transition-all duration-200 ease-out flex items-center justify-center gap-2 font-medium"
+                className="bg-purple hover:bg-purple-hover text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 ease-out flex items-center justify-center gap-2 font-medium"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)",
@@ -140,7 +139,7 @@ export default function Hero() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white shadow-lg hover:shadow-xl dark:shadow-purple-500/25 dark:hover:shadow-purple-500/40 transition-all duration-200"
+                  className="p-3 rounded-full bg-purple-600 hover:bg-purple-800 dark:bg-purple-600 dark:hover:bg-purple-700 text-white shadow-lg hover:shadow-xl dark:shadow-purple-500/25 dark:hover:shadow-purple-500/40 transition-all duration-200"
                   whileHover={{
                     scale: 1.15,
                     transition: { duration: 0.2 },
@@ -227,7 +226,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 dark:from-purple-500 dark:via-purple-400 dark:to-purple-600 rounded-full z-0 shadow-2xl dark:shadow-purple-500/25"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] bg-gradient-to-br from-purple-600 via-purple-600 to-purple-700 dark:from-purple-600 dark:via-purple-400 dark:to-purple-600 rounded-full z-0 shadow-2xl dark:shadow-purple-500/25"
               />
 
               {/* Anillo exterior con glow effect */}
@@ -259,13 +258,14 @@ export default function Hero() {
                     alt="Foto de David Niño"
                     fill
                     priority
+                    style={{ pointerEvents: "none" }}
                     className="object-contain object-center shadow-2xl dark:shadow-purple-500/20 transition-all duration-500 rounded-full ring-4 ring-white/20 dark:ring-purple-300/20"
                     sizes="(max-width: 768px) 384px, (max-width: 1024px) 450px, (max-width: 1280px) 500px, 580px"
                   />
                 </div>
               </motion.div>
 
-              {/* Partículas flotantes mejoradas con diferentes colores para dark/light */}
+              {/* Partículas flotantes */}
               {[
                 {
                   size: "w-4 h-4",
@@ -315,38 +315,6 @@ export default function Hero() {
                   className={`absolute ${particle.position} ${particle.size} bg-purple-600/60 dark:bg-purple-400/70 rounded-full z-30 shadow-lg dark:shadow-purple-400/30`}
                 />
               ))}
-
-              {/* Sparkles adicionales para dark theme */}
-              <motion.div
-                animate={{
-                  opacity: [0.3, 0.8, 0.3],
-                  scale: [0.8, 1.2, 0.8],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/4 left-1/4 text-purple-400/60 dark:text-purple-300/80 z-30"
-              >
-                <Sparkles size={16} />
-              </motion.div>
-
-              <motion.div
-                animate={{
-                  opacity: [0.4, 0.9, 0.4],
-                  scale: [0.9, 1.3, 0.9],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.5,
-                }}
-                className="absolute bottom-1/4 right-1/4 text-purple-500/50 dark:text-purple-200/70 z-30"
-              >
-                <Sparkles size={12} />
-              </motion.div>
             </div>
           </motion.div>
         </div>
