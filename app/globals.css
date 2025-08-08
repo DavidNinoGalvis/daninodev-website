@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #eeeeee;
@@ -8,6 +8,12 @@
   --muted: #6b7280;
   --purple: #8b46f3;
   --purple-hover: #3d1480;
+
+  /* Para opacidades dinámicas */
+  --background-rgb: 238 238 238; /* #eeeeee */
+  --foreground-rgb: 26 26 26; /* #1a1a1a */
+
+  scroll-behavior: smooth;
 }
 
 .dark {
@@ -18,6 +24,9 @@
   --muted: #9ca3af;
   --purple: #8b46f3;
   --purple-hover: #3d1480;
+
+  --background-rgb: 18 18 18; /* #121212 */
+  --foreground-rgb: 255 255 255; /* #ffffff */
 }
 
 body {
@@ -28,22 +37,19 @@ body {
     color 0.3s ease;
 }
 
+/* === utilidades base con tus variables === */
 .bg-background {
   background-color: var(--background);
 }
-
 .text-foreground {
   color: var(--foreground);
 }
-
 .border-border {
   border-color: var(--border);
 }
-
 .text-primary {
   color: var(--primary);
 }
-
 .text-muted {
   color: var(--muted);
 }
@@ -51,19 +57,17 @@ body {
 .bg-purple {
   background-color: var(--purple);
 }
-
 .bg-purple-hover {
   background-color: var(--purple-hover);
 }
-
 .text-purple {
   color: var(--purple);
 }
-
 .border-purple {
   border-color: var(--purple);
 }
 
+/* Si tu build no soporta color-mix, avísame y te doy alternativa */
 .bg-purple-light {
   background-color: color-mix(in srgb, var(--purple) 20%, transparent);
 }
@@ -71,7 +75,38 @@ body {
 .hover\:bg-purple-hover:hover {
   background-color: var(--purple-hover);
 }
-
 .hover\:text-purple:hover {
   color: var(--purple);
+}
+
+/* === superficies “glass” === */
+.bg-surface-90 {
+  background-color: rgb(var(--background-rgb) / 0.9);
+}
+.bg-surface-88 {
+  background-color: rgb(var(--background-rgb) / 0.88);
+}
+.bg-surface-85 {
+  background-color: rgb(var(--background-rgb) / 0.85);
+}
+.bg-surface-80 {
+  background-color: rgb(var(--background-rgb) / 0.8);
+}
+
+.glass {
+  @apply backdrop-blur-2xl backdrop-saturate-150;
+  background-color: rgb(var(--background-rgb) / 0.85);
+}
+
+.glass-strong {
+  @apply backdrop-blur-2xl backdrop-saturate-150;
+  background-color: rgb(var(--background-rgb) / 0.92);
+}
+
+/* Gradiente de marca legible en light/dark */
+.brand-gradient {
+  background-image: linear-gradient(90deg, var(--foreground), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

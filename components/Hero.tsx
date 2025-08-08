@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import {
   Mail,
   Copy,
@@ -11,9 +11,9 @@ import {
   Linkedin,
   Github,
   Facebook,
-} from "lucide-react";
-import Container from "./Container";
-import { motion } from "framer-motion";
+} from 'lucide-react';
+import Container from './Container';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -24,17 +24,17 @@ export default function Hero() {
   useEffect(() => {
     if (showEmail && emailBoxRef.current) {
       const element = emailBoxRef.current;
-      element.classList.add("animate-slide-up");
+      element.classList.add('animate-slide-up');
     }
   }, [showEmail]);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText("danino.dev@gmail.com");
+      await navigator.clipboard.writeText('danino.dev@gmail.com');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.log("Failed to copy email");
+    } catch {
+      console.log('Failed to copy email');
     }
   };
 
@@ -52,7 +52,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             className="flex flex-col gap-3 md:gap-4 max-w-lg z-20 text-center lg:text-left lg:w-2/5"
           >
             <span className="text-muted-foreground text-sm font-medium">
@@ -64,7 +64,7 @@ export default function Hero() {
             </span>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              I'm{" "}
+              I&apos;m{' '}
               <span className="text-purple hover:text-purple transition-colors duration-200">
                 David Nino
               </span>
@@ -85,7 +85,7 @@ export default function Hero() {
                 className="bg-purple hover:bg-purple-hover text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 ease-out flex items-center justify-center gap-2 font-medium"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)",
+                  boxShadow: '0 10px 25px rgba(147, 51, 234, 0.3)',
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -115,22 +115,22 @@ export default function Hero() {
               {[
                 {
                   icon: Instagram,
-                  href: "https://instagram.com/ninodadavid",
+                  href: 'https://instagram.com/ninodadavid',
                   delay: 0,
                 },
                 {
                   icon: Linkedin,
-                  href: "https://linkedin.com/in/davidninogalvis",
+                  href: 'https://www.linkedin.com/in/daninodev/',
                   delay: 0.5,
                 },
                 {
                   icon: Github,
-                  href: "https://github.com/DavidNinoGalvis",
+                  href: 'https://github.com/DavidNinoGalvis',
                   delay: 1,
                 },
                 {
                   icon: Facebook,
-                  href: "https://facebook.com/david.nino.galvis",
+                  href: 'https://www.facebook.com/profile.php?id=100014978629240',
                   delay: 1.5,
                 },
               ].map(({ icon: Icon, href, delay }, index) => (
@@ -152,7 +152,7 @@ export default function Hero() {
                     y: {
                       duration: 2,
                       repeat: Infinity,
-                      ease: "easeInOut",
+                      ease: 'easeInOut',
                       delay,
                     },
                   }}
@@ -170,8 +170,8 @@ export default function Hero() {
                   ? { opacity: 1, y: 0, scale: 1 }
                   : { opacity: 0, y: -10, scale: 0.95 }
               }
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className={`${showEmail ? "block" : "hidden"} mt-4`}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className={`${showEmail ? 'block' : 'hidden'} mt-4`}
             >
               <div
                 ref={emailBoxRef}
@@ -183,7 +183,7 @@ export default function Hero() {
                 <button
                   onClick={handleCopy}
                   className="text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-200 p-2 rounded-md hover:bg-muted/50"
-                  aria-label={copied ? "Email copied!" : "Copy email"}
+                  aria-label={copied ? 'Email copied!' : 'Copy email'}
                 >
                   {copied ? (
                     <Check
@@ -212,7 +212,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             className="relative flex justify-center w-full lg:w-3/5 z-10"
           >
             <div className="relative">
@@ -224,7 +224,7 @@ export default function Hero() {
                 transition={{
                   duration: 10,
                   repeat: Infinity,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                 }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] bg-gradient-to-br from-purple-600 via-purple-600 to-purple-700 dark:from-purple-600 dark:via-purple-400 dark:to-purple-600 rounded-full z-0 shadow-2xl dark:shadow-purple-500/25"
               />
@@ -236,8 +236,8 @@ export default function Hero() {
                   scale: [1, 1.02, 1],
                 }}
                 transition={{
-                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
                 }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[480px] md:h-[480px] lg:w-[530px] lg:h-[530px] xl:w-[580px] xl:h-[580px] border-2 border-purple-400/30 dark:border-purple-300/40 rounded-full z-0"
               />
@@ -248,7 +248,7 @@ export default function Hero() {
                 transition={{
                   duration: 6,
                   repeat: Infinity,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                 }}
                 className="relative z-20"
               >
@@ -258,7 +258,7 @@ export default function Hero() {
                     alt="Foto de David Niño"
                     fill
                     priority
-                    style={{ pointerEvents: "none" }}
+                    style={{ pointerEvents: 'none' }}
                     className="object-contain object-center shadow-2xl dark:shadow-purple-500/20 transition-all duration-500 rounded-full ring-4 ring-white/20 dark:ring-purple-300/20"
                     sizes="(max-width: 768px) 384px, (max-width: 1024px) 450px, (max-width: 1280px) 500px, 580px"
                   />
@@ -268,32 +268,32 @@ export default function Hero() {
               {/* Partículas flotantes */}
               {[
                 {
-                  size: "w-4 h-4",
-                  position: "top-12 right-8",
+                  size: 'w-4 h-4',
+                  position: 'top-12 right-8',
                   delay: 0,
                   duration: 8,
                 },
                 {
-                  size: "w-6 h-6",
-                  position: "bottom-16 -left-8",
+                  size: 'w-6 h-6',
+                  position: 'bottom-16 -left-8',
                   delay: 1,
                   duration: 6,
                 },
                 {
-                  size: "w-3 h-3",
-                  position: "top-1/3 -right-6",
+                  size: 'w-3 h-3',
+                  position: 'top-1/3 -right-6',
                   delay: 2,
                   duration: 7,
                 },
                 {
-                  size: "w-5 h-5",
-                  position: "top-2/3 left-4",
+                  size: 'w-5 h-5',
+                  position: 'top-2/3 left-4',
                   delay: 0.5,
                   duration: 9,
                 },
                 {
-                  size: "w-2 h-2",
-                  position: "bottom-1/3 right-12",
+                  size: 'w-2 h-2',
+                  position: 'bottom-1/3 right-12',
                   delay: 3,
                   duration: 5,
                 },
@@ -309,7 +309,7 @@ export default function Hero() {
                   transition={{
                     duration: particle.duration,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                     delay: particle.delay,
                   }}
                   className={`absolute ${particle.position} ${particle.size} bg-purple-600/60 dark:bg-purple-400/70 rounded-full z-30 shadow-lg dark:shadow-purple-400/30`}
