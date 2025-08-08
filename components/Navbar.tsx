@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import { Menu, X, Globe, User, FolderOpen, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
-import useTheme from '@/hooks/useTheme';
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { Menu, X, Globe, User, FolderOpen, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
+import useTheme from "@/hooks/useTheme";
 
 const navItems = [
-  { href: '#about', label: 'About', icon: User },
-  { href: '#projects', label: 'Projects', icon: FolderOpen },
-  { href: '#contact', label: 'Contact', icon: Mail },
+  { href: "#about", label: "About", icon: User },
+  { href: "#projects", label: "Projects", icon: FolderOpen },
+  { href: "#contact", label: "Contact", icon: Mail },
 ];
 
 const languages = [
-  { code: 'en', label: 'English', flag: '🇺🇸' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: "EN", label: "English" },
+  { code: "ES", label: "Español" },
 ];
 
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState("");
   const [currentLang, setCurrentLang] = useState(languages[0]);
 
   // Detectar scroll y sección activa
@@ -46,9 +46,9 @@ export default function Navbar() {
       if (current) setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Cerrar menús al hacer click fuera
@@ -60,8 +60,8 @@ export default function Navbar() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Scroll suave a sección
@@ -70,8 +70,8 @@ export default function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -88,16 +88,16 @@ export default function Navbar() {
           ref={navRef}
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className={`
             pointer-events-auto relative
             transition-all duration-500 ease-out
-            ${scrolled ? 'max-w-5xl' : 'max-w-7xl'}
+            ${scrolled ? "max-w-5xl" : "max-w-7xl"}
             mx-auto px-6 md:px-10 py-3
             flex items-center justify-between
             rounded-2xl border shadow-lg
             border-border
-            ${scrolled ? 'glass-strong shadow-2xl' : 'glass'}
+            ${scrolled ? "glass-strong shadow-2xl" : "glass"}
             hover:shadow-xl
           `}
         >
@@ -109,7 +109,7 @@ export default function Navbar() {
             className="flex items-center gap-3 cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             <div className="relative w-8 h-8 shrink-0">
@@ -150,8 +150,8 @@ export default function Navbar() {
                     transition-all duration-300 ease-out
                     ${
                       isActive
-                        ? 'text-purple bg-purple-light'
-                        : 'text-foreground hover:text-purple hover:bg-purple-light'
+                        ? "text-purple bg-purple-light"
+                        : "text-foreground hover:text-purple hover:bg-purple-light"
                     }
                   `}
                 >
@@ -176,7 +176,7 @@ export default function Navbar() {
                 title="Change language"
               >
                 <div className="flex items-center gap-1">
-                  <span className="text-lg">{currentLang.flag}</span>
+                  <span className="text-lg">{currentLang.code}</span>
                   <Globe size={20} />
                 </div>
               </motion.button>
@@ -194,18 +194,9 @@ export default function Navbar() {
                       <button
                         key={lang.code}
                         onClick={() => handleLanguageChange(lang)}
-                        className={`
-                          w-full px-3 py-2 text-left text-sm flex items-center gap-2
-                          transition-colors duration-200
-                          ${
-                            currentLang.code === lang.code
-                              ? 'text-purple bg-purple-light'
-                              : 'text-foreground hover:text-purple hover:bg-purple-light'
-                          }
-                        `}
+                        className="px-2 py-1 text-sm font-semibold hover:underline"
                       >
-                        <span>{lang.flag}</span>
-                        <span>{lang.label}</span>
+                        {lang.label}
                       </button>
                     ))}
                   </motion.div>
@@ -232,7 +223,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="md:hidden mt-2 pointer-events-auto glass-strong border border-border rounded-2xl shadow-xl overflow-hidden"
             >
               <nav className="py-4">
@@ -256,8 +247,8 @@ export default function Navbar() {
                         transition-all duration-300
                         ${
                           isActive
-                            ? 'text-purple bg-purple-light border-r-2 border-purple'
-                            : 'text-foreground hover:text-purple hover:bg-purple-light'
+                            ? "text-purple bg-purple-light border-r-2 border-purple"
+                            : "text-foreground hover:text-purple hover:bg-purple-light"
                         }
                       `}
                     >
@@ -271,7 +262,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between text-xs text-muted">
                   <span>© 2024 danino.dev</span>
                   <div className="flex items-center gap-2">
-                    <span>{currentLang.flag}</span>
+                    <span>{currentLang.code}</span>
                     <span>{currentLang.label}</span>
                   </div>
                 </div>
